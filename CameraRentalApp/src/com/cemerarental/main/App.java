@@ -9,6 +9,7 @@ public class App {
 		System.out.println("-----------------------------");
 		System.out.println("Welcome to Camera Rental App");
 		System.out.println("-----------------------------");
+		System.out.println("PLEASE LOGIN TO CONTINUE - ");
 		CameraRentalUtility.login();
 		
 		

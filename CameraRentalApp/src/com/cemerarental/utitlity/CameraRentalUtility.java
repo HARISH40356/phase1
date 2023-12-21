@@ -8,120 +8,72 @@ public class CameraRentalUtility {
 
 	static Scanner sc = new Scanner(System.in);
 	
-	//login method
 	public static void login() {
-		//reading useername and password through keyboard
-		System.out.print("USERNAME - ");
+		System.out.println("Enter your emailid ");
 		String emailid = sc.next();
-		System.out.print("PASSWORD - ");
+		System.out.println("Enter your password ");
 		String password = sc.next();
-		//checking username and password correchat or not
-		if(emailid.equalsIgnoreCase("harish@gmail.com") && password.equals("harish@123")) {
-			System.out.println("SUCCESSFULLY LOGIN ");
-			System.out.println();
-			//if username and password correct calling mainOption method
+		if(emailid.equals("akash@gmail.com") && password.equals("akash@123")) {
+			System.out.println("Successfully login");
 			mainOption();
 		}else {
-			//if username or password wrong displaying message
-			System.out.println("USERNAME OR PASSWORD INCORRECT ");
+			System.out.println("Failure try once again");
 		}
 	}
 	
-	//mainOption method
 	private static void mainOption() {
-		CameraService cs = new CameraService();
 		int choice;
 		String con="";
-		
 		do {
-			//printing options
-			System.out.println();
-			System.out.println("1: MY CAMERA ");
-			System.out.println("2: RENT CAMERA ");
-			System.out.println("3: VIEW ALL CAMERAS ");
-			System.out.println("4: MY WALLET ");
-			System.out.println("5: EXIT");
-			System.out.print("PLEASE ENTER YOUR CHOICE: ");
-			//reading the choice from above list
+			System.out.println("1: My Camera");
+			System.out.println("2: Rent Camera");
+			System.out.println("3: View All Camera");
+			System.out.println("4: My Wallet");
+			System.out.println("5: Exit");
+			System.out.println("Plz enter your choice");
 			choice = sc.nextInt();
-			
 			switch(choice) {
-			//if choice is 1 it will call subMenuOption method
-			case 1: subMenuOption(cs);
+			case 1: subMenuOption();
 				break;
-			//if choice is 2 it will call rentCamera method
-			case 2: cs.rentCamera();
+			case 2: 
 				break;
-			//if choice is 3 it will call viewAllCamera method
-			case 3: cs.viewAllCamera();
+			case 3: 
 				break;
-			//if choice is 4 it will call myWallet method
-			case 4: cs.myWallet();
+			case 4: 
 				break;
-			//if choice is 5 it will call closeApp method
-			case 5: closeApp();
+			case 5: 
 				break;
-			//if choice is not in above list it will print wrong choice
-			default:System.out.println("WRONG CHOICE ");
+			default:System.out.println("Wrong choice");
 			break;
 			}
-			//it will ask yes or no for to continue or exit
-			System.out.print("DO YOU WANT TO CONTINUE(YES/NO) ");
+			System.out.println("Do you want to continue(y/n)");
 			con = sc.next();
-			if(con.equalsIgnoreCase("yes")) {
-				con = "1";
-			}else {
-				con = "0";
-			}
-		}while(con.equalsIgnoreCase("1"));
+		}while(con.equalsIgnoreCase("y"));
 	}
 	
-	//subMenuOption method
-	private static void subMenuOption(CameraService cs) {
+	private static void subMenuOption() {
 		int choice;
 		String con="";
-		//CameraService cs = new CameraService();
+		CameraService cs = new CameraService();
 		do {
-			//printing the sub menu list
-			System.out.println();
-			System.out.println("1: ADD");
-			System.out.println("2: REMOVE");
-			System.out.println("3: VIEW ALL CAMERAS ");
-			System.out.println("4. GO TO PREVIOUS MENU ");
-			System.out.print("PLEASE ENTER YOUR CHOICE: ");
-			//reading choice through keyboard
+			System.out.println("1: Add Camera");
+			System.out.println("2: Remove Camera");
+			System.out.println("3: View Camere details");
 			choice = sc.nextInt();
 			switch(choice) {
-			//if choice is 1 it will call addCamera method
 			case 1: cs.addCamera();
 				break;
-			//if choice is 2 it will call removeCamera method
-			case 2: cs.removeCamera();
+			case 2: 
 				break;
-			//if choice is 3 it will call viewAllCamera method
 			case 3: cs.viewAllCamera();
 				break;
-			//if choice is 4 it will call mainOption method
-			case 4: mainOption();
+			case 4: 
 				break;
-			//if choice is not in above list then print wrong choice
-			default:System.out.println("WRONG CHOICE ");
+			default:System.out.println("Wrong choice");
 			break;
 			}
-			System.out.print("DO YOU WANT TO CONTINUE(YES/NO) ");
-			//it will ask yes or no for to continue or not
+			System.out.println("Do you want to continue(y/n)");
 			con = sc.next();
-			if(con.equalsIgnoreCase("yes")) {
-				con = "1";
-			}else {
-				con = "0";
-			}
-		}while(con.equalsIgnoreCase("1"));
-	}
-	
-	//closeApp method
-	private static void closeApp() {
-		//printing thank you message
-		System.out.println("\nClosing your application... \nThank you!");
+		}while(con.equalsIgnoreCase("y"));
 	}
 }
